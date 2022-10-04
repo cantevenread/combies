@@ -1,0 +1,4 @@
+WE RECCOMEND USINF CARGO BUILD:
+    RUN make cargobuild
+
+or use the other makefile configs.

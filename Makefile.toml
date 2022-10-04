@@ -1,0 +1,46 @@
+[tasks.unoptimized-clean]
+dependencies = [
+    "clean",
+    "unoptimized"
+]
+
+
+[tasks.clean]
+command = "cargo"
+args = ["clean"]
+
+[tasks.build-optimized]
+command = "cargo"
+args = ["build", " --release"]
+dependencies = [
+    "clean"
+]
+
+[tasks.run-optimized]
+command = "cargo"
+args = ["run"]
+dependencies = [
+    "build-optimized"
+]
+
+[tasks.optimized]
+dependencies = [
+    "clean",
+    "build-optimized",
+    "run-optimized"
+]
+
+[tasks.build-unoptimized]
+command = "cargo"
+args = ["build"]
+
+[tasks.run-unoptimized]
+command = "cargo"
+args = ["run"]
+dependencies = ["build-unoptimized"]
+
+[tasks.unoptimized]
+dependencies = [
+    "build-unoptimized",
+    "run-unoptimized"
+]
